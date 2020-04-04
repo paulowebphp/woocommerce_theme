@@ -29,7 +29,7 @@ get_header();
 
                                 ?>
 
-                                    <article class="bottom3">
+                                    <article class="col bottom3">
 
 
                                         <div class="bottom1">

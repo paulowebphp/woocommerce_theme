@@ -8,6 +8,8 @@
 /**
  * Enqueue scripts and styles.
  */
+//require get_template_directory().'/inc/class-wp-bootstrap-navwalker.php';
+
 function woocommerce_theme_scripts()
 {
 
@@ -28,6 +30,8 @@ function woocommerce_theme_scripts()
 	wp_enqueue_style( 'load-fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 
     wp_enqueue_style( 'wocoomerce-theme-style', get_stylesheet_uri(), array(), '1.0', 'all' );
+
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap|Seaweed+Script' );
   	
     // Bootstrap JS
     wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', array('jquery'), null, true);
@@ -50,6 +54,8 @@ add_action( 'wp_enqueue_scripts', 'woocommerce_theme_scripts' );
 
 function woocommerce_theme_config()
 {
+
+    require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
     register_nav_menus(
 

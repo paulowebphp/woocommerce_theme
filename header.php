@@ -25,31 +25,51 @@
         <header>
             <section class="search">
                 <div class="container">
-                    <?php _e('Search', 'woocommerce_theme'); ?>
+                    <div class="text-center d-md-flex align-items-center">
+                        <?php get_search_form(); ?>
+                    </div>
                 </div>
             </section>
             <section class="top-bar">
 
                 <div class="container">
                     <div class="row">
-                        <div class="brand col-3"><?php _e('Logo', 'woocommerce_theme'); ?></div>
-                        <div class="second-column col-9">
-                            <div class="account"><?php _e('Account', 'woocommerce_theme'); ?></div>
-                            <nav class="main-menu">
-                                <?php
+                        <div class="brand col-lg-2 col-md-3 col-12 text-center text-md-left"><?php _e('Logo', 'woocommerce_theme'); ?></div>
+                        <div class="second-column col-lg-10 col-md-9 col-12">
+                            <div class="row">
 
-                                    wp_nav_menu(
 
-                                        array(
+                                <div class="account col-12"><?php _e('Account', 'woocommerce_theme'); ?></div>
 
-                                            'theme_location'=>'woocommerce_theme_main_menu'
+                                <div class="col-12">
+                                    <nav class="main-menu navbar navbar-expand-md navbar-light" role="navigation">
+                                        <!-- Brand and toggle get grouped for better mobile display -->
+                                        <button class="ml-auto navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                                            <span class="navbar-toggler-icon"></span>
+                                        </button>
+                                        <?php
+                                            wp_nav_menu( 
+                                                
+                                                array(
 
-                                        )
+                                                    'theme_location'    => 'woocommerce_theme_main_menu',
+                                                    'depth'             => 3,
+                                                    'container'         => 'div',
+                                                    'container_class'   => 'collapse navbar-collapse',
+                                                    'container_id'      => 'bs-example-navbar-collapse-1',
+                                                    'menu_class'        => 'nav navbar-nav',
+                                                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                                                    'walker'            => new WP_Bootstrap_Navwalker(),
 
-                                    );
+                                                ) 
+                                            );
+                                        ?>
+                                    </nav>
+                                </div>
+                                
 
-                                ?>
-                            </nav>
+
+                            </div>
                         </div>
 
                     </div>
